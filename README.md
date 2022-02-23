@@ -1,1 +1,1 @@
-# Rymin.github.io
+# Rymin
