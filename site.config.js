@@ -7,12 +7,12 @@ const CONFIG = {
     bio: "I using unity engine.",
     email: "minsu_jj@naver.com",
     github: "https://github.com/JeonMinSu/",
-    instagram: "https://www.instagram.com/j_mansuor/?igshid=OGQ5ZDc2ODk2ZA%3D%3D",
+    instagram: "https://www.instagram.com/j_mansuor/",
   },
   projects: [
     {
       name: `Minsu`,
-      href: "https://github.com/JeonMinSu",
+      href: "https://github.com/JeonMinSu",t
     },
   ],
   // blog setting (required)
