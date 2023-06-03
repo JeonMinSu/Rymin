@@ -6,7 +6,6 @@ const CONFIG = {
     role: "Game Developer",
     bio: "I using unity engine.",
     email: "minsu_jj@naver.com",
-    linkedin: "rymin",
     github: "rymin",
     instagram: "https://www.instagram.com/j_mansuor/",
   },
