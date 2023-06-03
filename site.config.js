@@ -4,11 +4,10 @@ const CONFIG = {
     name: "Minsu, Jeon(RYMIN)",
     image: "", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Game Developer",
-    bio: "I develop everything using node.",
+    bio: "I using unity engine.",
     email: "minsu_jj@naver.com",
-    linkedin: "",
-    github: "",
-    instagram: "",
+    github: "https://github.com/JeonMinSu/",
+    instagram: "https://www.instagram.com/j_mansuor/?igshid=OGQ5ZDc2ODk2ZA%3D%3D",
   },
   projects: [
     {
@@ -19,12 +18,12 @@ const CONFIG = {
   // blog setting (required)
   blog: {
     title: "minsu_jj",
-    description: "welcome to minsu blog!",
+    description: "welcome to rymin blog!",
     theme: "auto", // ['light', 'dark', 'auto']
   },
 
   // CONFIG configration (required)
-  link: "https://morethan-log.vercel.app",
+  link: "https://test.vercel.app",
   since: 2022, // If leave this empty, current year will be used.
   lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
