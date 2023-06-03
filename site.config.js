@@ -3,7 +3,7 @@ const CONFIG = {
   profile: {
     name: "Minsu, Jeon(RYMIN)",
     image: "/avatar_02.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
-    role: "Game test Developer",
+    role: "Game Developer",
     bio: "I using unity engine.",
     email: "minsu_jj@naver.com",
     linkedin: "rymin",
