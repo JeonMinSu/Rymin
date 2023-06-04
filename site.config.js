@@ -1,10 +1,10 @@
 const CONFIG = {
   // profile setting (required)
   profile: {
-    name: "Minsu, Jeon(RYMIN)",
+    name: "Minsu, Jeon(라이민)",
     image: "/avatar_02.jpg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Game Developer",
-    bio: "Unity Engine",
+    bio: "라이민의 개발 블로그",
     email: "minsu_jj@naver.com",
     github: "JeonMinSu",
     instagram: "https://www.instagram.com/j_mansuor/",
