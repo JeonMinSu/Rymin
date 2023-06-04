@@ -11,11 +11,11 @@ class MyDocument extends Document {
             as="font"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
           />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="apple-app-icon" href="/favicon.ico" />
           <link
             rel="icon"
             sizes="192x192"
-            href="/icon.png"
+            href="/apple-app-icon.png"
           ></link>
           <link
             rel="alternate"
