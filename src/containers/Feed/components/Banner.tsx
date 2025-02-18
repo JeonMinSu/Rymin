@@ -9,7 +9,7 @@ export default function NotionBanner()
 
 
     useEffect(() => {
-        fetch("/api/getBanner")
+        fetch("/apis/getBanner")
           .then((res) => res.json())
           .then(({ pageData }) => {
             const block = Object.values(pageData.block)[0] as { value: { format?: { page_cover?: string; page_icon?: string } } }; // 첫 번째 블록 가져오기
