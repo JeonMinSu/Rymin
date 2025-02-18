@@ -1,7 +1,11 @@
 // 클라이언트에서 API 호출
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router"
 
 const Cover: React.FC = () => {
+  const router = useRouter();
+
+  console.log('Cover.tsx: Cover: React.FC'+ router.query.coverUrl);
   // const [coverUrl, setCoverUrl] = useState<string | null>(null);
   // const [error, setError] = useState<string | null>(null);
 
