@@ -7,6 +7,7 @@ import { TCategories, TPosts, TTags } from "@customTypes/index"
 import SearchInput from "./components/SearchInput"
 import { FeedHeader } from "./components/FeedHeader"
 import Footer from "./components/Footer"
+import NotionBanner from "./components/Banner"
 
 type Props = {
   categories: TCategories
@@ -38,6 +39,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
       <div className="col-span-12 lg:col-span-7">
         <Cards.MobileProfileCard />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
+        <NotionBanner />
         <Lists.TagList className="block lg:hidden" data={tags} />
         <FeedHeader categories={categories} />
         <Lists.PostList q={q} posts={posts} />
