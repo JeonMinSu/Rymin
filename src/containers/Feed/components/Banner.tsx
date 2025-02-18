@@ -15,6 +15,9 @@ export default function NotionBanner()
             const block = Object.values(pageData.block)[0] as { value: { format?: { page_cover?: string; page_icon?: string } } }; // 첫 번째 블록 가져오기
             const banner = block.value.format?.page_cover || "";
             const icon = block.value.format?.page_icon || "";
+
+          console.log("Extracted Banner:", banner);
+
     
             setData({ banner, icon });
           })
