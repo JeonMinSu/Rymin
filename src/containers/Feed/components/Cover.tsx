@@ -11,7 +11,7 @@ const Cover: React.FC = () => {
   useEffect(() => {
     async function fetchCover() {
       try {
-        const cover = await getPageCover();
+        // const cover = await getPageCover();
 
       //   if (cover) {
       //     setCoverUrl(coverUrl);
