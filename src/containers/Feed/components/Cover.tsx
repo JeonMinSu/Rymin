@@ -8,10 +8,9 @@ const Cover: React.FC = () => {
   const [coverUrl, setCoverUrl] = useState();
 
   console.log('Cover.tsx: Cover: React.FC'+ router.query.coverUrl);
-  useEffect(() => {
     async function fetchCover() {
       try {
-        // const cover = await getPageCover();
+        const cover = await getPageCover();
 
       //   if (cover) {
       //     setCoverUrl(coverUrl);
@@ -23,7 +22,6 @@ const Cover: React.FC = () => {
       }
     }
     fetchCover();
-  })
 
   return (
     <div className="p-6">
