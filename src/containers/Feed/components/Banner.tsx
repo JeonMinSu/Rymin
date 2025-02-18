@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router"
 
 export default function NotionBanner()
 {
 
+    const router = useRouter()
     const [data, setData] = useState<{ banner: string; icon: string } | null>(null);
 
+
     useEffect(() => {
-        fetch("/api/notion")
+        fetch("/api/getBanner")
           .then((res) => res.json())
           .then(({ pageData }) => {
             const block = Object.values(pageData.block)[0] as { value: { format?: { page_cover?: string; page_icon?: string } } }; // 첫 번째 블록 가져오기
