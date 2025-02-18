@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getPageCover } from "@/src/libs/apis/getCover";
 
-function Cover() {
+const Cover: React.FC = ({}) => {
+  
   const [coverUrl, setCoverUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -9,7 +10,6 @@ function Cover() {
     async function fetchCover() {
       try {
         const coverUrl = await getPageCover();
-
         if (coverUrl) {
           setCoverUrl(coverUrl);
         } else {
@@ -21,7 +21,6 @@ function Cover() {
         setError("Failed to load cover.");
       }
     }
-
     fetchCover();
   }, []);
 
