@@ -10,39 +10,20 @@ const Cover: React.FC = () => {
   console.log('Cover.tsx: Cover: React.FC'+ router.query.coverUrl);
   useEffect(() => {
     async function fetchCover() {
-      // try {
-      //   const cover = await getPageCover();
+      try {
+        const cover = await getPageCover();
 
       //   if (cover) {
       //     setCoverUrl(coverUrl);
       //   } else {
       //     console.error("Failed to load cover.");
       //   }
-      // } catch (error) {
-      //   console.error("Failed to load cover.");
-      // }
+      } catch (error) {
+        console.error("Failed to load cover.");
+      }
     }
     fetchCover();
   })
-
-  // useEffect(() => {
-  //   async function fetchCover() {
-  //     try {
-  //       const response = await fetch("/api/notion");
-  //       const data = await response.json();
-
-  //       if (response.ok && data.coverUrl) {
-  //         setCoverUrl(data.coverUrl);
-  //       } else {
-  //         setError(data.error || "Failed to load cover.");
-  //       }
-  //     } catch (error) {
-  //       setError("Failed to load cover.");
-  //     }
-  //   }
-
-  //   fetchCover();
-  // }, []);
 
   return (
     <div className="p-6">
