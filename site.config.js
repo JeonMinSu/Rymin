@@ -1,5 +1,10 @@
 const CONFIG = {
   // profile setting (required)
+  page:
+  {
+    cover: "/cover.jpg",
+  },
+
   profile: {
     name: "Minsu, Jeon(Rymin)",
     image: "/avatar_02.jpg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
