@@ -32,7 +32,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
           height: "calc(100vh - 73px)",
         }}
       >
-        <Lists.TagList data={tags} />
+        {/* <Lists.TagList data={tags} /> */}
         {/* <Lists.CategoryList data={categories} /> */}
       </div>
       <div className="col-span-12 lg:col-span-7">
@@ -50,9 +50,9 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
           height: "calc(100vh - 73px)",
         }}
       >
-        <Cards.ProfileCard />
+        {/* <Cards.ProfileCard />
         <Cards.ServiceCard />
-        <Cards.ContactCard />
+        <Cards.ContactCard /> */}
         <Footer className="pt-4" />
       </div>
     </div>
