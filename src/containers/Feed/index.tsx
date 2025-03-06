@@ -36,14 +36,14 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
         <Lists.TagList data={tags} />
         <Lists.CategoryList data={categories} />
       </div> */}
-      <div className="col-span-12 lg:col-span-12" style={{ backgroundColor: "#ff00f0" }}>
-        <Cards.MobileProfileCard />
+      <div className="col-span-12 lg:col-span-12">
+        {/* <Cards.MobileProfileCard /> */}
         <Cover />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
-        <Lists.TagList className="block lg:hidden" data={tags} />
-        <FeedHeader categories={categories} />
+        {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
+        {/* <FeedHeader categories={categories} /> */}
         <Lists.PostList q={q} posts={posts} />
-        <Footer className="block lg:hidden flex justify-center pb-8" />
+        {/* <Footer className="block lg:hidden flex justify-center pb-8" /> */}
       </div>
       {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block lg:col-span-3 overflow-scroll"
