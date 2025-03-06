@@ -26,7 +26,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
   //     display: none;
   // }
   return (
-    <div className="block md:grid grid-cols-12 lg:col-span-12 gap-0" style={{ backgroundColor: "#f9f9f9" }}>
+    <div className="block md:grid grid-cols-12 lg:col-span-12 gap-0">
       {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block col-span-2 overflow-scroll"
         style={{ backgroundColor: "#f9f9f9",
