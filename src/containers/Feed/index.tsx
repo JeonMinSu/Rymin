@@ -26,15 +26,15 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
   // }
   return (
     <div className="block md:grid grid-cols-12 gap-6">
-      <div
+      {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block col-span-2 overflow-scroll"
         style={{ backgroundColor: "#f9f9f9",
           height: "calc(100vh - 73px)",
         }}
       >
-        {/* <Lists.TagList data={tags} /> */}
-        {/* <Lists.CategoryList data={categories} /> */}
-      </div>
+        <Lists.TagList data={tags} />
+        <Lists.CategoryList data={categories} />
+      </div> */}
       <div className="col-span-12 lg:col-span-7" style={{ backgroundColor: "#ff00f0" }}>
         {/* <Cards.MobileProfileCard />
         <Cover />
@@ -44,18 +44,18 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
         <Lists.PostList q={q} posts={posts} />
         <Footer className="block lg:hidden flex justify-center pb-8" /> */}
       </div>
-      <div
+      {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block lg:col-span-3 overflow-scroll"
         style={{
           backgroundColor: "#f9f000",
           height: "calc(100vh - 73px)",
         }}
       >
-        {/* <Cards.ProfileCard />
+        <Cards.ProfileCard />
         <Cards.ServiceCard />
-        <Cards.ContactCard /> */}
+        <Cards.ContactCard />
         <Footer className="pt-4" />
-      </div>
+      </div> */}
     </div>
   )
 }
