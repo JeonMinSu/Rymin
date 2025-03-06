@@ -8,6 +8,7 @@ import SearchInput from "./components/SearchInput"
 import { FeedHeader } from "./components/FeedHeader"
 import Footer from "./components/Footer"
 import Cover from "./components/Cover";
+
 type Props = {
   categories: TCategories
   tags: TTags
@@ -35,7 +36,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
         <Lists.TagList data={tags} />
         <Lists.CategoryList data={categories} />
       </div> */}
-      <div className="col-span-12 lg:col-span-7" style={{ backgroundColor: "#ff00f0" }}>
+      <div className="col-span-12 lg:col-span-12" style={{ backgroundColor: "#ff00f0" }}>
         <Cards.MobileProfileCard />
         <Cover />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
