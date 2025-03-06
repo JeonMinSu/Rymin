@@ -7,7 +7,7 @@ import { CONFIG } from "@/site.config";
 
 const Cover: React.FC = () => {
   return (
-    <div className="p-6">
+    <div className="col-span-12 lg:col-span-12">
       {(
         <img
           src={CONFIG.page.cover}
