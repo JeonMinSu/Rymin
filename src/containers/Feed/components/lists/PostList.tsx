@@ -52,7 +52,7 @@ const PostList: React.FC<Props> = ({ q, posts }) => {
 
   return (
     <>
-      <div className="my-2">
+      <div className="my-2" style={{backgroundColor: "#f9f9f9"}}>
         {!filteredPosts.length && (
           <p className="text-gray-500 dark:text-gray-300">Nothing! 😺</p>
         )}

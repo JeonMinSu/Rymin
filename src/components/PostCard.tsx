@@ -49,9 +49,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
               {data.author && data.author[0] && (
                 <>
                   <div className="flex items-center gap-1">
-                    <img
+                    <Image
                       className="rounded-full"
-                      src={data.author[0].profile_photo}
+                      src={data.author[0].profile_photo || CONFIG.profile.image}
                       alt="profile_photo"
                       width={20}
                       height={20}
