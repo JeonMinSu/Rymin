@@ -28,14 +28,14 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
     <div className="block md:grid grid-cols-12 gap-6">
       <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block col-span-2 overflow-scroll"
-        style={{
+        style={{ backgroundColor: "#f9f9f9",
           height: "calc(100vh - 73px)",
         }}
       >
         {/* <Lists.TagList data={tags} /> */}
         {/* <Lists.CategoryList data={categories} /> */}
       </div>
-      <div className="col-span-12 lg:col-span-7">
+      <div className="col-span-12 lg:col-span-7" style={{ backgroundColor: "#ff00f0" }}>
         {/* <Cards.MobileProfileCard />
         <Cover />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
@@ -47,6 +47,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
       <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block lg:col-span-3 overflow-scroll"
         style={{
+          backgroundColor: "#f9f000",
           height: "calc(100vh - 73px)",
         }}
       >
