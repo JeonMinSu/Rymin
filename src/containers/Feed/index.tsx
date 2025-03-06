@@ -39,10 +39,10 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
       <div className="col-span-12 lg:col-span-12">
         {/* <Cards.MobileProfileCard /> */}
         <Cover />
-        <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
+        {/* <SearchInput value={q} onChange={(e) => setQ(e.target.value)} /> */}
         {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
         {/* <FeedHeader categories={categories} /> */}
-        {/* <Lists.PostList q={q} posts={posts} /> */}
+        <Lists.PostList q={q} posts={posts} />
         {/* <Footer className="block lg:hidden flex justify-center pb-8" /> */}
       </div>
       {/* <div

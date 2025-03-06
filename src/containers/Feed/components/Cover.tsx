@@ -12,7 +12,7 @@ const Cover: React.FC = () => {
         <img
           src={CONFIG.page.cover}
           alt="Notion Cover"
-          className="w-full h-64 object-cover rounded-lg shadow-md"
+          className="w-full h-full object-cover rounded-lg shadow-md"
         />
       )}
     </div>
