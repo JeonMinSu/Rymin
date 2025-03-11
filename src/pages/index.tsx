@@ -80,14 +80,14 @@ export default function FeedPage({recordMap: initialRecordMap} : {recordMap: any
   const { id } = router.query;
   const [recordMap, setRecordMap] = useState<any>(initialRecordMap);
 
-  useEffect(() => {
-      if (id) {
-          fetch(`/api/getPage?pageId=${id}`)
-              .then((res) => res.json())
-              .then((data) => setRecordMap(data))
-              .catch((err) => console.error("Error fetching Notion data:", err));
-      }
-  }, [id]);
+//   useEffect(() => {
+//       if (id) {
+//           fetch(`/api/getPage?pageId=${id}`)
+//               .then((res) => res.json())
+//               .then((data) => setRecordMap(data))
+//               .catch((err) => console.error("Error fetching Notion data:", err));
+//       }
+//   }, [id]);
 
   if (!recordMap) return <p>Loading...</p>;
 
