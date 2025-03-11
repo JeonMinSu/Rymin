@@ -65,7 +65,7 @@ import { useEffect, useState } from "react"
 export async function getStaticProps() {
    try {
     let id  = CONFIG.notionConfig.pageId as string;
-    const recordMap = await getPostBlocks(id);
+    const recordMap = await getPostBlocks("c946a31b6a93498da5de4edad710454a");
 
     return { props: { recordMap }};
 
