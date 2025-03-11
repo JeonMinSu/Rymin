@@ -8,11 +8,31 @@ import SearchInput from "./components/SearchInput"
 import { FeedHeader } from "./components/FeedHeader"
 import Footer from "./components/Footer"
 import Cover from "./components/Cover";
+import { getPostBlocks } from "@/src/libs/apis"
+import { CONFIG } from "@/site.config"
 
 type Props = {
   categories: TCategories
   tags: TTags
   posts: TPosts
+}
+
+export async function getStaticProps() {
+  try {
+    //includePages: true
+    let id = CONFIG.notionConfig.pageId as string
+    const blockMap = await getPostBlocks(id)
+
+    return {
+      props: { blockMap },
+      revalidate: 1,
+    }
+  } catch (error) {
+    return {
+      props: {},
+      revalidate: 1,
+    }
+  }
 }
 
 const Feed: React.FC<Props> = ({ categories, tags, posts }) => {

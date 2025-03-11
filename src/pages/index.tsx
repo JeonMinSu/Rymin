@@ -7,7 +7,7 @@ import Feed from "@containers/Feed"
 import { CONFIG } from "../../site.config"
 import { NextPageWithLayout } from "./_app"
 import { TCategories, TPosts, TTags } from "../types"
-import { getPosts } from "../libs/apis"
+import { getPostBlocks, getPosts } from "../libs/apis"
 import { DEFAULT_CATEGORY } from "../constants"
 import { NotionRenderer } from "react-notion-x"
 import { useRouter } from "next/router"
@@ -62,10 +62,23 @@ import { useEffect, useState } from "react"
 //     </Layout>
 //   )
 // }
-export default function FeedPage() {
+export async function getStaticProps() {
+   try {
+    let id  = CONFIG.notionConfig.pageId as string;
+    const recordMap = await getPostBlocks(id);
+
+    return { props: { recordMap }};
+
+//     const posts = await getPosts()
+//     const filteredPost = filterPosts(posts)
+   } catch (error) {
+    return { props: {recordMap: null}};
+   }
+}
+export default function FeedPage({recordMap: initialRecordMap} : {recordMap: any}) {
   const router = useRouter();
   const { id } = router.query;
-  const [recordMap, setRecordMap] = useState<any>(null);
+  const [recordMap, setRecordMap] = useState<any>(initialRecordMap);
 
   useEffect(() => {
       if (id) {
