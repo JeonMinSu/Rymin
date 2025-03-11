@@ -62,38 +62,24 @@ import { useEffect, useState } from "react"
 //     </Layout>
 //   )
 // }
-export async function getStaticProps() {
-   try {
-    let id  = CONFIG.notionConfig.pageId as string;
-    const recordMap = await getPostBlocks("c946a31b6a93498da5de4edad710454a");
 
-    return { props: { recordMap }};
-
-//     const posts = await getPosts()
-//     const filteredPost = filterPosts(posts)
-   } catch (error) {
-    return { props: {recordMap: null}};
-   }
-}
-export default function FeedPage({recordMap: initialRecordMap} : {recordMap: any}) {
+export default function FeedPage() {
   const router = useRouter();
-  const { id } = router.query;
-  const [recordMap, setRecordMap] = useState<any>(initialRecordMap);
-
-//   useEffect(() => {
-//       if (id) {
-//           fetch(`/api/getPage?pageId=${id}`)
-//               .then((res) => res.json())
-//               .then((data) => setRecordMap(data))
-//               .catch((err) => console.error("Error fetching Notion data:", err));
-//       }
-//   }, [id]);
+  let id  = router.query;
+  const [recordMap, setRecordMap] = useState<any>(null);
+  
+  useEffect(() => {
+    fetch(`/libs/apis/getPage?id=${id}`)
+      .then((res) => res.json())
+      .then((data) => setRecordMap(data.recordMap))
+      .catch((error) => console.error("Error fetching Notion data:", error));
+  }, [id]);
 
   if (!recordMap) return <p>Loading...</p>;
 
   return (
       <div className="p-6">
-          <NotionRenderer recordMap={recordMap} fullPage darkMode={false} />
+          <NotionRenderer recordMap={recordMap} darkMode={false} />
       </div>
   );
 }
