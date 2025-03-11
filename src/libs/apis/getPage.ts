@@ -1,21 +1,20 @@
 import { NotionAPI } from "notion-client";
 import {NextApiRequest, NextApiResponse} from "next";
 import { CONFIG } from "@/site.config";
+import { Client } from "@notionhq/client";
 
-const notion = new NotionAPI;
+const notion = new Client({ auth: CONFIG.notionConfig.notionApiKey });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    try{
+    try {
         const pageId = CONFIG.notionConfig.pageId as string;
-        if (!pageId || typeof pageId !== "string") {
-            throw new Error("Invalid pageId")
-        }
+        if (!pageId) throw new Error("Database ID is missing");
 
-        const recordMap = await notion.getPage(pageId);
-        res.status(200).json({recordMap});
+        const response = await notion.databases.query({ database_id: pageId });
 
+        res.status(200).json({ results: response.results });
     } catch (error) {
-        console.error("Error fetching Notion data:", error);
-        res.status(500).json({ error: "Failed to fetch Notion page" });
+        console.error("Notion API Error:", error);
+        res.status(500).json({ error: "Failed to fetch Notion database" });
     }
 }

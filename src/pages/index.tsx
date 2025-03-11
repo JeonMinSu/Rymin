@@ -62,26 +62,43 @@ import { useEffect, useState } from "react"
 //     </Layout>
 //   )
 // }
+interface NotionItem {
+    id: string;
+    properties: {
+        Name?: { title: { text: { content: string } }[] };
+        CoverImage?: { files: { file?: { url: string }; external?: { url: string } }[] };
+    };
+}
 
 export default function FeedPage() {
-  const router = useRouter();
-  let id  = router.query;
-  const [recordMap, setRecordMap] = useState<any>(null);
-  
-  useEffect(() => {
-    fetch(`/libs/apis/getPage?id=${id}`)
-      .then((res) => res.json())
-      .then((data) => setRecordMap(data.recordMap))
-      .catch((error) => console.error("Error fetching Notion data:", error));
-  }, [id]);
+    const [data, setData] = useState<NotionItem[]>([]);
 
-  if (!recordMap) return <p>Loading...</p>;
+    useEffect(() => {
+        fetch("/api/getDatabase")
+            .then((res) => res.json())
+            .then((data) => setData(data.results))
+            .catch((err) => console.error("Error fetching Notion database:", err));
+    }, []);
 
-  return (
-      <div className="p-6">
-          <NotionRenderer recordMap={recordMap} darkMode={false} />
-      </div>
-  );
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6">
+            {data.map((item) => {
+                const title = item.properties.Name?.title[0]?.text.content || "No Title";
+                const imageUrl = item.properties.CoverImage?.files[0]?.file?.url ||
+                                 item.properties.CoverImage?.files[0]?.external?.url ||
+                                 "https://via.placeholder.com/300";
+
+                return (
+                    <div key={item.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+                        <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
+                        <div className="p-4">
+                            <h3 className="text-lg font-semibold">{title}</h3>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
 
 // export default FeedPage
