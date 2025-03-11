@@ -6,7 +6,7 @@ const notion = new NotionAPI;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try{
-        const { pageId } = req.query;
+        const pageId = CONFIG.notionConfig.pageId as string;
         if (!pageId || typeof pageId !== "string") {
             throw new Error("Invalid pageId")
         }
