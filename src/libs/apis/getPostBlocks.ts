@@ -14,5 +14,6 @@ export async function getPostBlocks(pageId: string) {
 
   } catch (error) {
     console.error("Error fetching Notion data:", error)
+    return null;
   }
 }
