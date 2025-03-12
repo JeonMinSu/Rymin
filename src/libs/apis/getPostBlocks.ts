@@ -1,4 +1,3 @@
-import { CONFIG } from "@/site.config"
 import { NotionAPI } from "notion-client"
 
 const api = new NotionAPI()
@@ -14,5 +13,6 @@ export async function getPostBlocks(pageId: string) {
 
   } catch (error) {
     console.error("Error fetching Notion data:", error)
+    return null;
   }
 }
