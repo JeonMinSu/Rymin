@@ -90,7 +90,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   const mapPageUrl = (id: string) => {
     const cleanId = id.replace(/-/g, '');
     const slug = idToSlugMap[cleanId];
-    return slug ? `/pages/${slug}` : `/pages/${cleanId}`;
+    return slug ? `/${slug}` : `/${cleanId}`;
   }
 
   //   .box {
