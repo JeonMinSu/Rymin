@@ -35,7 +35,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
         <Lists.TagList data={tags} />
         <Lists.CategoryList data={categories} />
       </div>
-      <div className="col-span-12 lg:col-span-12">
+      <div className="col-span-10 lg:col-span-10">
         {/* <Cards.MobileProfileCard /> */}
         <Cover />
         {/* <SearchInput value={q} onChange={(e) => setQ(e.target.value)} /> */}
