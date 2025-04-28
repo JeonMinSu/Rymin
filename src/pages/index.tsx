@@ -15,6 +15,7 @@ export async function getStaticProps() {
     const filteredPost = filterPosts(posts)
     const tags = getAllSelectItemsFromPosts("tags", filteredPost)
     const categories = getAllSelectItemsFromPosts("category", filteredPost)
+    const blockMap = await getPostBlocks(CONFIG.notionConfig.pageId!)
 
     return {
       props: {
@@ -26,6 +27,7 @@ export async function getStaticProps() {
           ...categories,
         },
         posts: filteredPost,
+        blockMap: blockMap
       },
       revalidate: 1,
     }
@@ -38,10 +40,11 @@ type Props = {
   categories: TCategories
   tags: TTags
   posts: TPosts
+  blockMap: any
 }
 
-const FeedPage: NextPageWithLayout<Props> = ({ categories, tags, posts }) => {
-  return <Feed categories={categories} tags={tags} posts={posts} />
+const FeedPage: NextPageWithLayout<Props> = ({ categories, tags, posts, blockMap }) => {
+  return <Feed categories={categories} tags={tags} posts={posts} blockMap={blockMap} />
 }
 
 FeedPage.getLayout = function getlayout(page) {
