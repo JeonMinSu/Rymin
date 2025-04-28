@@ -25,7 +25,7 @@ const CONFIG = {
   blog: {
     title: "RYMIN",
     description: "Welcome to Rymin blog!",
-    theme: "auto", // ['light', 'dark', 'auto']
+    theme: "light", // ['light', 'dark', 'auto']
   },
 
   // CONFIG configration (required)
