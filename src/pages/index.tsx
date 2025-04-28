@@ -9,10 +9,6 @@ import { NextPageWithLayout } from "./_app"
 import { TCategories, TPosts, TTags } from "../types"
 import { getPostBlocks, getPosts } from "../libs/apis"
 import { DEFAULT_CATEGORY } from "../constants"
-import { NotionRenderer } from "react-notion-x"
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
-
 export async function getStaticProps() {
   try {
     const posts = await getPosts()
