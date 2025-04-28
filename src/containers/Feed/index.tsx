@@ -73,10 +73,6 @@ const Modal = dynamic(
   }
 )
 
-const mapPageUrl = (id: string) => {
-  return "https://www.notion.so/" + id.replace(/-/g, "")
-}
-
 type Props = {
   categories: TCategories
   tags: TTags
@@ -86,6 +82,16 @@ type Props = {
 
 const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   const [q, setQ] = useState("")
+
+  const idToSlugMap = Object.fromEntries(
+    posts.map((post) => [post.id.replace(/-/g, ''), post.slug])
+  )
+
+  const mapPageUrl = (id: string) => {
+    const cleanId = id.replace(/-/g, '');
+    const slug = idToSlugMap[cleanId];
+    return slug ? `/pages/${slug}` : `/pages/${cleanId}`;
+  }
 
   //   .box {
   //     -ms-overflow-style: none;

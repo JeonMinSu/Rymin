@@ -6,7 +6,7 @@ import Layout from "@components/Layout"
 import Feed from "@containers/Feed"
 import { CONFIG } from "../../site.config"
 import { NextPageWithLayout } from "./_app"
-import { TCategories, TPosts, TTags } from "../types"
+import { TCategories, TPost, TPosts, TTags } from "../types"
 import { getPostBlocks, getPosts } from "../libs/apis"
 import { DEFAULT_CATEGORY } from "../constants"
 export async function getStaticProps() {
@@ -15,7 +15,7 @@ export async function getStaticProps() {
     const filteredPost = filterPosts(posts)
     const tags = getAllSelectItemsFromPosts("tags", filteredPost)
     const categories = getAllSelectItemsFromPosts("category", filteredPost)
-    const blockMap = await getPostBlocks(CONFIG.notionConfig.pageId!)
+    const blockMap = await getPostBlocks(CONFIG.notionConfig.pageId as string)
 
     return {
       props: {
