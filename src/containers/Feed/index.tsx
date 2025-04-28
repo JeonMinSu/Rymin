@@ -10,6 +10,7 @@ import Footer from "./components/Footer"
 import Cover from "./components/Cover";
 
 import { NotionRenderer } from "react-notion-x"
+import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 
