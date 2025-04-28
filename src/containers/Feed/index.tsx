@@ -96,15 +96,15 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   // }
   return (
     <div className="block md:grid grid-cols-12 lg:col-span-12 gap-0">
-      <div
+      {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block col-span-1 overflow-scroll"
         style={{ height: "calc(100vh - 73px)",
         }}
       >
         <Lists.TagList data={tags} />
         <Lists.CategoryList data={categories} />
-      </div>
-      <div className="col-span-11 lg:col-span-11">
+      </div> */}
+      <div className="col-span-12 lg:col-span-12">
         {/* <Cards.MobileProfileCard /> */}
         <Cover />
         {/* <SearchInput value={q} onChange={(e) => setQ(e.target.value)} /> */}
