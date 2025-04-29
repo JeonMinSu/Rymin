@@ -13,6 +13,8 @@ import { NotionRenderer } from "react-notion-x"
 import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
+import { BlockMap, ExtendedRecordMap } from "notion-types"
+import { filterPublicBlocks } from "@/src/libs/utils/notion/filterBlockMap"
 
 const Code = dynamic(() =>
   import("react-notion-x/build/third-party/code").then(async (m) => {
@@ -77,7 +79,7 @@ type Props = {
   categories: TCategories
   tags: TTags
   posts: TPosts
-  blockMap: any
+  blockMap: ExtendedRecordMap
 }
 
 const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
@@ -88,18 +90,13 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   )
 
   const mapPageUrl = (id: string) => {
-    const cleanId = id.replace(/-/g, '');
-    const slug = idToSlugMap[cleanId];
-    return slug ? `/${slug}` : `/${cleanId}`;
+    const cleanId = id.replace(/-/g, '')
+    const slug = idToSlugMap[cleanId]
+    return slug ? `/${slug}` : `/${cleanId}`
   }
 
-  //   .box {
-  //     -ms-overflow-style: none;
-  //     scrollbar-width: none;
-  // }
-  // .box::-webkit-scrollbar {
-  //     display: none;
-  // }
+  const filteredRecordMap = filterPublicBlocks(blockMap)
+
   return (
     <div className="block md:grid grid-cols-12 lg:col-span-12 gap-0">
       {/* <div
@@ -117,7 +114,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
         {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
         {/* <FeedHeader categories={categories} /> */}
         <NotionRenderer
-              recordMap={blockMap}
+              recordMap={filteredRecordMap}
               components={{
                 Code,
                 Collection,

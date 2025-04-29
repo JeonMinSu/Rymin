@@ -9,6 +9,9 @@ import { NextPageWithLayout } from "./_app"
 import { TCategories, TPost, TPosts, TTags } from "../types"
 import { getPostBlocks, getPosts } from "../libs/apis"
 import { DEFAULT_CATEGORY } from "../constants"
+import { BlockMap, ExtendedRecordMap } from "notion-types"
+
+
 export async function getStaticProps() {
   try {
     const posts = await getPosts()
@@ -40,7 +43,7 @@ type Props = {
   categories: TCategories
   tags: TTags
   posts: TPosts
-  blockMap: any
+  blockMap: ExtendedRecordMap
 }
 
 const FeedPage: NextPageWithLayout<Props> = ({ categories, tags, posts, blockMap }) => {
