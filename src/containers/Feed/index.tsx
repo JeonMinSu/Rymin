@@ -85,16 +85,25 @@ type Props = {
 const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   const [q, setQ] = useState("")
 
+  function extractNotionId(id: string) {
+    const idPattern = /([0-9a-fA-F]{32})$/;
+    const match = id.match(idPattern);
+    return match ? match[1] : id;
+  }
+  
+  // idToSlugMap 생성
   const idToSlugMap = Object.fromEntries(
-    posts
-      .filter((post) => post.slug) // slug 있는 것만
-      .map((post) => [post.id.replace(/-/g, ''), post.slug])
+    posts.map((post) => [
+      extractNotionId(post.id).replace(/-/g, ''),
+      post.slug
+    ])
   );
   
+  // mapPageUrl
   const mapPageUrl = (id: string) => {
-    const cleanId = id.replace(/-/g, '');
+    const cleanId = extractNotionId(id).replace(/-/g, '');
     const slug = idToSlugMap[cleanId];
-    return slug && slug.length > 0 ? `/${slug}` : `/${cleanId}`;
+    return slug ? `/${slug}` : `/${cleanId}`;
   };
   
 
