@@ -40,11 +40,12 @@ export async function getPosts() {
     rawMetadata?.type !== "collection_view_page" &&
     rawMetadata?.type !== "collection_view"
   ) {
-    console.log("Notion API Error: Invalid type" + rawMetadata?.id)
     return []
   } else {
     // Construct Data
     const pageIds = getAllPageIds(response)
+    console.log("pageIds length : ", pageIds.length)
+    
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
