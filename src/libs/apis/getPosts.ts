@@ -44,7 +44,7 @@ export async function getPosts() {
   } else {
     // Construct Data
     const pageIds = getAllPageIds(response)
-    console.log("pageIds length :", pageIds.length)
+    console.log("pageIds length : ", pageIds.length)
     
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
