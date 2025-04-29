@@ -89,6 +89,10 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
     posts.map((post) => [post.id, post.slug])
   )
 
+  for (const slug in idToSlugMap) {
+    console.log(slug, idToSlugMap[slug])
+  }
+
   const mapPageUrl = (id: string) => {
     const cleanId = id
     const slug = idToSlugMap[cleanId]
