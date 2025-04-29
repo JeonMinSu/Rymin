@@ -13,7 +13,7 @@ import { NotionRenderer } from "react-notion-x"
 import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
-import { BlockMap, ExtendedRecordMap } from "notion-types"
+import { ExtendedRecordMap } from "notion-types"
 import { filterPublicBlocks } from "@/src/libs/utils/notion/filterBlockMap"
 
 const Code = dynamic(() =>
@@ -114,7 +114,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
         {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
         {/* <FeedHeader categories={categories} /> */}
         <NotionRenderer
-              recordMap={filteredRecordMap}
+              recordMap={blockMap}
               components={{
                 Code,
                 Collection,

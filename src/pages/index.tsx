@@ -9,15 +9,15 @@ import { NextPageWithLayout } from "./_app"
 import { TCategories, TPost, TPosts, TTags } from "../types"
 import { getPostBlocks, getPosts } from "../libs/apis"
 import { DEFAULT_CATEGORY } from "../constants"
-import { BlockMap, ExtendedRecordMap } from "notion-types"
+import { ExtendedRecordMap } from "notion-types"
 
 
 export async function getStaticProps() {
   try {
     const posts = await getPosts()
-    const filteredPost = filterPosts(posts)
-    const tags = getAllSelectItemsFromPosts("tags", filteredPost)
-    const categories = getAllSelectItemsFromPosts("category", filteredPost)
+    // const filteredPost = filterPosts(posts)
+    const tags = getAllSelectItemsFromPosts("tags", posts)
+    const categories = getAllSelectItemsFromPosts("category", posts)
     const blockMap = await getPostBlocks(CONFIG.notionConfig.pageId as string)
 
     return {
@@ -26,7 +26,7 @@ export async function getStaticProps() {
           ...tags,
         },
         categories: {
-          [DEFAULT_CATEGORY]: filteredPost.length,
+          [DEFAULT_CATEGORY]: posts.length,
           ...categories,
         },
         posts: posts,
