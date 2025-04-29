@@ -86,14 +86,17 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   const [q, setQ] = useState("")
 
   const idToSlugMap = Object.fromEntries(
-    posts.map((post) => [post.id.replace(/-/g, ''), post.slug])
-  )
-
+    posts
+      .filter((post) => post.slug) // slug 있는 것만
+      .map((post) => [post.id.replace(/-/g, ''), post.slug])
+  );
+  
   const mapPageUrl = (id: string) => {
-    const cleanId = id.replace(/-/g, '')
-    const slug = idToSlugMap[cleanId]
-    return slug ? `/${slug}` : `/${cleanId}`
-  }
+    const cleanId = id.replace(/-/g, '');
+    const slug = idToSlugMap[cleanId];
+    return slug && slug.length > 0 ? `/${slug}` : `/${cleanId}`;
+  };
+  
 
   const filteredRecordMap = filterPublicBlocks(blockMap)
 
