@@ -13,7 +13,7 @@ import { NotionRenderer } from "react-notion-x"
 import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
-import { ExtendedRecordMap } from "notion-types"
+import { BlockMap, ExtendedRecordMap } from "notion-types"
 import { filterPublicBlocks } from "@/src/libs/utils/notion/filterBlockMap"
 
 const Code = dynamic(() =>
@@ -86,17 +86,14 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
   const [q, setQ] = useState("")
 
   const idToSlugMap = Object.fromEntries(
-    posts
-      .filter((post) => post.slug) // slug 있는 것만
-      .map((post) => [post.slug])
-  );
-  
+    posts.map((post) => [post.id, post.slug])
+  )
+
   const mapPageUrl = (id: string) => {
-    const cleanId = id.replace(/-/g, '');
-    const slug = idToSlugMap[cleanId];
-    return slug && slug.length > 0 ? `/${slug}` : `/${cleanId}`;
-  };
-  
+    const cleanId = id
+    const slug = idToSlugMap[cleanId]
+    return slug ? `/${slug}` : `/${cleanId}`
+  }
 
   const filteredRecordMap = filterPublicBlocks(blockMap)
 
@@ -117,7 +114,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
         {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
         {/* <FeedHeader categories={categories} /> */}
         <NotionRenderer
-              recordMap={blockMap}
+              recordMap={filteredRecordMap}
               components={{
                 Code,
                 Collection,
