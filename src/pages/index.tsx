@@ -47,7 +47,8 @@ type Props = {
 }
 
 const FeedPage: NextPageWithLayout<Props> = ({ categories, tags, posts, blockMap }) => {
-  return <Feed categories={categories} tags={tags} posts={posts} blockMap={blockMap} />
+    console.log(posts.length)
+    return <Feed categories={categories} tags={tags} posts={posts} blockMap={blockMap} />
 }
 
 FeedPage.getLayout = function getlayout(page) {
