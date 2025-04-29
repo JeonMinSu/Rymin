@@ -40,6 +40,7 @@ export async function getPosts() {
     rawMetadata?.type !== "collection_view_page" &&
     rawMetadata?.type !== "collection_view"
   ) {
+    console.log("Notion API Error: Invalid type" + rawMetadata?.id)
     return []
   } else {
     // Construct Data
