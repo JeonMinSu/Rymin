@@ -120,7 +120,7 @@ const Feed: React.FC<Props> = ({ categories, tags, posts, blockMap }) => {
         {/* <Lists.TagList className="block lg:hidden" data={tags} /> */}
         {/* <FeedHeader categories={categories} /> */}
         <NotionRenderer
-              recordMap={blockMap}
+              recordMap={filteredRecordMap}
               components={{
                 Code,
                 Collection,
