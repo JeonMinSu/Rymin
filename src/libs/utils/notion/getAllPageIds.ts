@@ -18,7 +18,7 @@ export default function getAllPageIds(
     // * type not exist
     Object.values(views).forEach((view: any) => {
       console.log("view type : " + view?.collection_group_results?.type)
-      view?.collection_group_results?.blockIds?.forEach((id: ID) =>{
+      view?.collection_group_results?.blockIds?.forEach((id: ID) =>
         pageSet.add(id)
       )
     })
