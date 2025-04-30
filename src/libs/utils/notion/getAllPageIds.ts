@@ -8,8 +8,6 @@ export default function getAllPageIds(
   const collectionQuery = response.collection_query
   const views = Object.values(collectionQuery)[0]
 
-  console.log("collection_view : ", response.collection_view)
-
   let pageIds: ID[] = []
   if (viewId) {
     const vId = idToUuid(viewId)
